@@ -1,9 +1,13 @@
 package controller;
 
 import controller.responseDTO.membersDTO;
+import model.Member;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.MemberService;
+
+import java.util.Collections;
+import java.util.List;
 
 @RestController
 public class memberController {
@@ -16,6 +20,8 @@ public class memberController {
 
     @GetMapping("/members")
     public membersDTO getAllMembers() {
-        return new membersDTO(memberService.getAllMembers());
+        List<Member> members = memberService.getAllMembers();
+        Collections.shuffle(members);
+        return new membersDTO(members);
     }
 }
