@@ -3,6 +3,7 @@ package controller;
 import controller.responseDTO.membersDTO;
 import model.Member;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import service.MemberService;
 
@@ -23,5 +24,10 @@ public class memberController {
         List<Member> members = memberService.getAllMembers();
         Collections.shuffle(members);
         return new membersDTO(members);
+    }
+
+    @GetMapping("/add")
+    public void addOneMember(@PathVariable String name) {
+        memberService.add(name);
     }
 }

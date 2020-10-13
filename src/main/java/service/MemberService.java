@@ -10,4 +10,8 @@ public class MemberService {
     public List<Member> getAllMembers() {
         return MemberListProvider.provideMembers();
     }
+
+    public void add (String name) {
+        //add to database
+    }
 }
