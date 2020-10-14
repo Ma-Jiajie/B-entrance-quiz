@@ -4,6 +4,7 @@ public class Member {
     private String id;
     private String name;
 
+    //TODO GTB: 拼写错误
     public Member(String id, String namn) {
         this.id = id;
         this.name = name;
